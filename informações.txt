@@ -1,0 +1,16 @@
+Criar uma API para gastos pessoas.
+
+1º Criar a estrutura do projeto = ok
+2º Planejara o Sistema:
+    2.1 -  Controle de Usuarios (CRUD);
+        2.1.1. Criar a autenticação com JWT;
+    2.2 -  Criar Centro de Custos ( CRUD);
+        2.2.1. Todo centro de custo tem que estar vinculado a um Usuarios;
+    2.3 -  Criar os titulos : A PAGAR e A RECEBER (CRUD);
+        2.3.1. Todo Título deve estar vinculado a um Usuarui;
+        2.3.2. Todo título deve estar vinculado a 1 ou "Varios - N" centros de custos;
+    2.4 -  Criar um endpoint de fluxo de caixa;
+        2.4.1. Obter o total a pagar , total a receber , o saldo atual, lista de titulos a pagar
+               a lista de titulos a receber , com opção de filtrar : 
+               filtro por vencimento, tipo de titulos; 
+    

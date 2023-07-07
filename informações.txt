@@ -13,4 +13,7 @@ Criar uma API para gastos pessoas.
         2.4.1. Obter o total a pagar , total a receber , o saldo atual, lista de titulos a pagar
                a lista de titulos a receber , com opção de filtrar : 
                filtro por vencimento, tipo de titulos; 
+
+
+Porta PostgreSQL = 5432
     

@@ -1,9 +1,7 @@
 package com.albuquerquelima.meusgastos.Domain.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -14,8 +12,7 @@ import com.albuquerquelima.meusgastos.Domain.repository.UsuarioRepository;
 import com.albuquerquelima.meusgastos.Dto.Usuario.UsuarioRequestDto;
 import com.albuquerquelima.meusgastos.Dto.Usuario.UsuarioResponseDto;
 
-
-public class UsuarioService implements ICRUDService < UsuarioRequestDto, UsuarioResponseDto> {
+public class UsuarioService implements ICRUDService<UsuarioRequestDto, UsuarioResponseDto> {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -24,7 +21,7 @@ public class UsuarioService implements ICRUDService < UsuarioRequestDto, Usuario
     private ModelMapper mapper;
 
     @Override
-    public UsuarioResponseDto atualizar(Long id, UsuarioRequestDto dto) {  
+    public UsuarioResponseDto atualizar(Long id, UsuarioRequestDto dto) {
         return null;
     }
 
@@ -32,34 +29,37 @@ public class UsuarioService implements ICRUDService < UsuarioRequestDto, Usuario
     public UsuarioResponseDto cadastrar(UsuarioRequestDto dto) {
         return null;
     }
+
     @Override
-    public void deletar(long id) {    
+    public void deletar(long id) {
     }
+
     @Override
     public UsuarioResponseDto obterPorId(Long id) {
         Optional<Usuario> optUsuario = usuarioRepository.findById(id);
-        if(optUsuario.isEmpty()){
+        if (optUsuario.isEmpty()) {
             // Aqui lançar uma exception ...
-       }
-       return mapper.map(optUsuario.get(), UsuarioResponseDto.class);
+        }
+        return mapper.map(optUsuario.get(), UsuarioResponseDto.class);
 
     }
+
     @Override
     public List<UsuarioResponseDto> obterTodos() {
 
-         List<Usuario> usuarios = usuarioRepository.findAll();
+        List<Usuario> usuarios = usuarioRepository.findAll();
 
-         //List<UsuarioResponseDto> usuariosDto = new ArrayList<>();
-         
-         //for (Usuario usuario : usuarios) {
-             
-           //UsuarioResponseDto dto = mapper.map(usuario, UsuarioResponseDto.class);
-           // usuariosDto.add(dto);
-         //}
-         //return usuariosDto;
+        // List<UsuarioResponseDto> usuariosDto = new ArrayList<>();
 
-         return usuarios.stream()
+        // for (Usuario usuario : usuarios) {
+
+        // UsuarioResponseDto dto = mapper.map(usuario, UsuarioResponseDto.class);
+        // usuariosDto.add(dto);
+        // }
+        // return usuariosDto;
+
+        return usuarios.stream()
                 .map(usuario -> mapper.map(usuario, UsuarioResponseDto.class))
-                .collect(Collectors.toList());        
-     } 
+                .collect(Collectors.toList());
+    }
 }
